@@ -27,9 +27,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <nav className="flex-1 p-4 space-y-2 mt-4">
           <NavItem icon={<LayoutGrid size={20} />} label="Dashboard" href="/dashboard" />
           <NavItem icon={<Users size={20} />} label="Users" href="/dashboard/users" />
-          <NavItem icon={<FileText size={20} />} label="Content Manager" href="/content" />
-          <NavItem icon={<CreditCard size={20} />} label="Subscriptions" href="/subscriptions" />
-          <NavItem icon={<Settings size={20} />} label="Settings" href="/settings" />
+          <NavItem icon={<FileText size={20} />} label="Content Manager" href="/dashboard/content" />
+          <NavItem icon={<CreditCard size={20} />} label="Subscriptions" href="/dashboard/subscriptions" />
+          <NavItem icon={<Settings size={20} />} label="Settings" href="/dashboard/settings" />
         </nav>
         <div className="p-4 border-t-2 border-gray-300">
           <button className="flex items-center gap-3 text-gray-500 hover:text-red-600 w-full px-4 py-2">
