@@ -1,4 +1,4 @@
-import UsersPage from '@/component/UsersPage'
+import UsersPage from '@/component/users/UsersPage'
 import React from 'react'
 
 const users = () => {

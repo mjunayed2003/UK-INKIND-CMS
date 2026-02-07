@@ -1,4 +1,4 @@
-import SettingsPage from '@/component/SettingPage'
+import SettingsPage from '@/component/setting/SettingPage'
 import React from 'react'
 
 const page = () => {

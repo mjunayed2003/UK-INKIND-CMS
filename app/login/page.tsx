@@ -1,4 +1,4 @@
-import LoginPage from '@/component/LoginPage'
+import LoginPage from '@/component/login and recovery/LoginPage'
 import React from 'react'
 
 const Login = () => {
