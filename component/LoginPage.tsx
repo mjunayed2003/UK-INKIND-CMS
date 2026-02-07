@@ -59,14 +59,12 @@ export default function LoginPage() {
                         </div>
 
                         {/* Login Button */}
-                        <Link href='/dashboard'>
                             <button
                                 type="submit"
                                 className="w-full py-4 mt-4 font-bold tracking-wide text-black transition-colors bg-[#fbe5cd] rounded-lg hover:bg-[#f2d8bd]"
                             >
                                 Login
                             </button>
-                        </Link>
                     </form>
                 </div>
             </div>

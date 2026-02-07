@@ -1,5 +1,4 @@
 import DashboardPage from '@/component/DashboardPage'
-import React from 'react'
 
 const dashboard = () => {
   return (
