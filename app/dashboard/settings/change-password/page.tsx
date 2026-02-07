@@ -1,4 +1,4 @@
-import SettingChangePasswordPage from '@/component/SettingChangePasswordPage'
+import SettingChangePasswordPage from '@/component/setting/SettingChangePasswordPage'
 import React from 'react'
 
 const page = () => {

@@ -1,4 +1,4 @@
-import SettingFAQPage from '@/component/SettingFAQPage'
+import SettingFAQPage from '@/component/setting/SettingFAQPage'
 import React from 'react'
 
 const page = () => {

@@ -1,4 +1,4 @@
-import SettingProfilePage from '@/component/SettingsProfilePage'
+import SettingProfilePage from '@/component/setting/SettingsProfilePage'
 import React from 'react'
 
 const page = () => {
