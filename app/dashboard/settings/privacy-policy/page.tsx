@@ -1,4 +1,4 @@
-import SettingPrivacyPolicy from "@/component/SettingPrivacyPolicy"
+import SettingPrivacyPolicy from "@/component/setting/SettingPrivacyPolicy"
 
 const page = () => {
   return (

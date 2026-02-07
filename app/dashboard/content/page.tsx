@@ -1,4 +1,4 @@
-import ContentManagerPage from '@/component/ContentManagerPage'
+import ContentManagerPage from '@/component/content manager/ContentManagerPage'
 import React from 'react'
 
 const page = () => {

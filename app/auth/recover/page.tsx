@@ -1,4 +1,4 @@
-import RecoverAccountPage from '@/component/RecoverAccountPage'
+import RecoverAccountPage from '@/component/login and recovery/RecoverAccountPage'
 
 const recover = () => {
   return (

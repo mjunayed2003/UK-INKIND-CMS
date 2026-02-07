@@ -1,4 +1,4 @@
-import SettingTermsAndConditions from '@/component/SettingTermsPage'
+import SettingTermsAndConditions from '@/component/setting/SettingTermsPage'
 import React from 'react'
 
 const page = () => {
