@@ -1,4 +1,4 @@
-import SubscriptionsPage from '@/component/SubscriptionsPage'
+import SubscriptionsPage from '@/component/login and recovery/SubscriptionsPage'
 import React from 'react'
 
 const page = () => {
