@@ -92,21 +92,21 @@ export default function SubscriptionsPage() {
                 Active
               </span>
               
-              <h3 className="text-lg font-serif font-bold text-gray-800 mb-2">{plan.name}</h3>
+              <h3 className="text-[18px] font-serif font-bold text-gray-800 mb-2">{plan.name}</h3>
               
               <div className="flex items-baseline mb-3">
-                <span className="text-3xl font-bold font-serif">£{plan.price}</span>
-                <span className="text-xs text-gray-400 ml-1 font-serif">{plan.period}</span>
+                <span className="text-3xl font-bold font-serif text-gray-800">£{plan.price}</span>
+                <span className="text-[18px] text-gray-400 ml-1 font-serif">{plan.period}</span>
               </div>
               
-              <p className="text-xs text-[#4f795a] font-serif leading-relaxed mb-6 italic">
+              <p className="text-[18px] text-[#4f795a] font-serif leading-relaxed mb-6 italic">
                 {plan.tagline}
               </p>
 
               {/* Progress Bar for Available Spots (Free Plan only) */}
               {plan.spots !== undefined && (
                 <div className="mb-6 bg-[#f9f9f9] p-4 rounded-xl border border-gray-50">
-                  <div className="flex justify-between text-[10px] font-bold text-gray-400 mb-2">
+                  <div className="flex justify-between text-[12px] font-bold text-gray-400 mb-2">
                     <span>Available Spots</span>
                     <span>{plan.totalSpots}</span>
                   </div>
@@ -119,7 +119,7 @@ export default function SubscriptionsPage() {
               {/* Features List */}
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex gap-3 text-[11px] text-gray-600 font-serif leading-tight">
+                  <li key={idx} className="flex gap-3 text-[18px] text-gray-600 font-serif leading-tight">
                     <Check size={14} className="text-[#4f795a] flex-shrink-0" />
                     {feature}
                   </li>
@@ -172,7 +172,7 @@ function EditPlanModal({ plan, onClose }: { plan: Plan; onClose: () => void }) {
         <h2 className="text-xl font-serif text-gray-800 mb-8">Edit {plan.name}</h2>
 
         <div className="space-y-6">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 text-gray-800">
             <div className="space-y-2">
               <label className="text-sm font-serif">Plan Name</label>
               <input type="text" defaultValue={plan.name} className="w-full p-3 bg-white border border-gray-100 rounded-xl outline-none text-sm shadow-sm" />
@@ -201,7 +201,7 @@ function EditPlanModal({ plan, onClose }: { plan: Plan; onClose: () => void }) {
           {/* Features Section */}
           <div className="space-y-4">
             <div className="flex justify-between items-center">
-              <h3 className="text-sm font-serif">Features</h3>
+              <h3 className="text-sm font-serif text-gray-800">Features</h3>
               <button className="bg-[#4f795a] text-white px-4 py-2 rounded-lg flex items-center gap-2 text-xs font-bold">
                 <Plus size={16} /> Features
               </button>

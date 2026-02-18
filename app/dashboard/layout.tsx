@@ -4,6 +4,7 @@ import { LayoutGrid, Users, FileText, CreditCard, Settings, LogOut, Bell } from 
 import Image from 'next/image';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 function NavItem({ icon, label, href }: { icon: React.ReactNode, label: string, href: string }) {
   const pathname = usePathname();
@@ -17,6 +18,11 @@ function NavItem({ icon, label, href }: { icon: React.ReactNode, label: string, 
 }
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
+  const handleLogout = ()=>{
+    localStorage.removeItem("token");
+    router.push("/login");
+  }
   return (
     <div className="flex bg-[#fdf6ee] min-h-screen">
       {/* Sidebar */}
@@ -32,7 +38,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <NavItem icon={<Settings size={20} />} label="Settings" href="/dashboard/settings" />
         </nav>
         <div className="p-4 border-t-2 border-gray-300">
-          <button className="flex items-center gap-3 text-gray-500 hover:text-red-600 w-full px-4 py-2">
+          <button onClick={handleLogout} className="flex items-center gap-3 text-gray-500 hover:text-red-600 w-full px-4 py-2">
             <LogOut size={20} />
             <span className="font-medium">Sign Out</span>
           </button>
@@ -44,11 +50,15 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <header className="flex justify-between items-center bg-white px-8 py-4 shadow-sm sticky top-0 z-20">
           <h2 className="text-gray-600 font-medium font-serif">Saturday, January 10, 2026</h2>
           <div className="flex items-center gap-6">
+            <Link href="/dashboard/notifications" className="relative">
             <div className='border-r-2 border-gray-300 pr-4'><Bell size={22} className="text-gray-400" /></div>
+            </Link>
+            <Link href="/dashboard/settings" className="flex items-center gap-3 hover:bg-gray-100 rounded-lg px-3 py-2 transition-colors">
             <div className="flex items-center gap-3">
               <Image src="/image/profile-pic.png" alt="User" className="rounded-full border-2 border-orange-200" width={40} height={40} />
               <div className="text-left"><p className="text-sm font-bold text-gray-800">Jane Cooper</p><p className="text-xs text-gray-400">Admin</p></div>
             </div>
+            </Link>
           </div>
         </header>
         <main className="p-8">{children}</main>
