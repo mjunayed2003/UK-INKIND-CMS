@@ -4,9 +4,12 @@ import { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 
 export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
+    const router = useRouter();
 
     return (
         <main className="flex flex-col min-h-screen lg:flex-row">
@@ -60,6 +63,7 @@ export default function LoginPage() {
 
                         {/* Login Button */}
                             <button
+                                onClick={()=> router.push('/dashboard')}
                                 type="submit"
                                 className="w-full py-4 mt-4 font-bold tracking-wide text-black transition-colors bg-[#fbe5cd] rounded-lg hover:bg-[#f2d8bd]"
                             >
