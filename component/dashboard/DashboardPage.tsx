@@ -18,10 +18,11 @@ export default function DashboardPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 my-8">
         <div className="lg:col-span-2 bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-50">
-          <h3 className="text-2xl font-serif mb-1">Monthly Recurring Revenue</h3>
+          <h3 className="text-2xl font-serif mb-1 text-gray-800">Monthly Recurring Revenue</h3>
+          <p className="text-gray-500 text-sm mb-6">Revenue trends over the last 6 months</p>
           <div className="flex items-center gap-4 mb-8">
-            <span className="text-4xl font-bold font-serif">£156,910</span>
-            <div className="flex items-center gap-1 text-[#4f795a]"><TrendingUp size={24} /><span className="text-lg font-bold">15%</span></div>
+            <span className="text-4xl font-bold font-serif text-gray-800">£156,910</span>
+            <div className="flex items-center gap-1 text-[#497955]"><TrendingUp size={24} /><span className="text-lg font-bold">15%</span></div>
           </div>
           <div className="h-72 w-full">
             <ResponsiveContainer width="100%" height="100%">
@@ -37,11 +38,15 @@ export default function DashboardPage() {
         </div>
 
         <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-50">
-          <h3 className="text-2xl font-serif mb-6">Subscription Distribution</h3>
+          <h3 className="text-2xl font-serif mb-6 text-gray-800">Subscription Distribution</h3>
           <div className="space-y-8">
             {['Rockstar', 'Hero', 'Prime', 'Main', 'Free'].map((plan) => (
               <div key={plan} className="space-y-2">
-                <div className="flex justify-between font-serif"><span>{plan}</span><span className="text-[#4f795a] font-bold underline">£45/Month</span></div>
+                <div className="flex justify-between font-serif"><span className='text-gray-500'>{plan}</span> <p className="text-2xl font-bold text-gray-500">
+                  <span className="text-2xl font-normal text-gray-800 mr-2">89 User</span>
+                  £45/Month
+                </p>
+                </div>
                 <div className="w-full bg-[#dbe4dd] h-3 rounded-full overflow-hidden"><div className="bg-[#4f795a] h-full w-[65%] rounded-full"></div></div>
               </div>
             ))}
@@ -64,7 +69,7 @@ export default function DashboardPage() {
           <tbody>
             {['Active', 'Suspended', 'Active'].map((status, i) => (
               <tr key={i} className="text-sm font-serif">
-                <td className="px-6 py-4">User1</td>
+                <td className="px-6 py-4 text-gray-500">User1</td>
                 <td className="px-6 py-4 text-gray-500 font-sans">user1@example.com</td>
                 <td className="px-6 py-4"><span className="px-4 py-1.5 border border-[#4f795a]/20 text-[#2db394] rounded-lg">The Main Plan</span></td>
                 <td className="px-6 py-4">
