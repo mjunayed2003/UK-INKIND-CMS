@@ -4,8 +4,7 @@ import { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
@@ -18,7 +17,13 @@ export default function LoginPage() {
                 <div className="max-w-md mx-auto lg:mx-0 w-full">
                     <h1 className="mb-8 text-4xl font-serif">Login to your account</h1>
 
-                    <form className="space-y-6">
+                    <form
+                        className="space-y-6"
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            router.push("/dashboard");
+                        }}
+                    >
                         {/* Email Field */}
                         <div>
                             <label htmlFor="email" className="block mb-2 text-sm font-light text-gray-200">
@@ -62,13 +67,12 @@ export default function LoginPage() {
                         </div>
 
                         {/* Login Button */}
-                            <button
-                                onClick={()=> router.push('/dashboard')}
-                                type="submit"
-                                className="w-full py-4 mt-4 font-bold tracking-wide text-black transition-colors bg-[#fbe5cd] rounded-lg hover:bg-[#f2d8bd]"
-                            >
-                                Login
-                            </button>
+                        <button
+                            type="submit"
+                            className="w-full py-4 mt-4 font-bold tracking-wide text-black transition-colors bg-[#fbe5cd] rounded-lg hover:bg-[#f2d8bd]"
+                        >
+                            Login
+                        </button>
                     </form>
                 </div>
             </div>
