@@ -1,49 +1,103 @@
 "use client";
-import React from 'react';
-import { ChevronLeft, EyeOff } from 'lucide-react';
+
+import React, { useState } from 'react';
+import { ChevronLeft, Eye, EyeOff } from 'lucide-react';
 import Link from 'next/link';
 
 export default function SettingChangePasswordPage() {
-  return (
-    <div className="relative min-h-[80vh] flex flex-col">
-      <Link href="/dashboard/settings" className="flex items-center gap-2 text-gray-700 hover:text-black mb-8">
-        <ChevronLeft size={20} />
-        <span className="font-medium">Change Password</span>
-      </Link>
+  const [showCurrent, setShowCurrent] = useState(false);
+  const [showNew, setShowNew] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
-      {/* Decorative Background Pattern */}
-      <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20 overflow-hidden">
-        <div className="w-[800px] h-[400px] bg-[#4f795a] rounded-full -mt-[200px] mx-auto"></div>
-        <div className="w-[800px] h-[400px] bg-[#4f795a] rounded-full -mb-[200px] mx-auto"></div>
+  return (
+    <div className="min-h-[80vh] w-full flex flex-col relative overflow-hidden">
+      
+      {/* Back Button */}
+      <div className="z-20 mb-6">
+        <Link href="/dashboard/settings" className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
+          <ChevronLeft size={20} />
+          <span className="font-medium">Back to Settings</span>
+        </Link>
       </div>
 
-      <div className="flex-1 flex items-center justify-center relative z-10">
-        <div className="bg-white p-10 rounded-3xl shadow-xl w-full max-w-md border border-gray-100">
-          <h2 className="text-2xl font-serif font-semibold text-gray-800 mb-8">Change Password</h2>
+      {/* Main Content */}
+      <div className="flex-1 flex items-center justify-center z-10">
+        <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-sm border border-gray-100 w-full max-w-[500px]">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-serif font-bold text-gray-800">Change Password</h2>
+            <p className="text-gray-500 text-sm mt-2">Please create a secure password.</p>
+          </div>
           
-          <div className="space-y-6">
-            <div className="relative">
-              <label className="absolute -top-3 left-4 bg-white px-2 text-sm text-gray-500">Current Password</label>
-              <input type="password" placeholder="********" className="text-gray-800 w-full p-4 border border-gray-200 rounded-xl focus:outline-none" />
+          <form className="space-y-8"> 
+            
+            {/* Current Password */}
+            <div className="relative w-full">
+              
+              <label className="absolute -top-3 left-4 bg-white px-2 text-xs font-semibold text-gray-500 z-10">
+                Current Password
+              </label>
+              <div className="relative">
+                <input 
+                  type={showCurrent ? "text" : "password"} 
+                  placeholder="********" 
+                  className="w-full p-4 border border-gray-200 rounded-xl text-gray-800 focus:outline-none focus:border-[#4f795a] focus:ring-1 focus:ring-[#4f795a] transition-all bg-transparent" 
+                />
+                <button 
+                  type="button"
+                  onClick={() => setShowCurrent(!showCurrent)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 z-20"
+                >
+                  {showCurrent ? <Eye size={20} /> : <EyeOff size={20} />}
+                </button>
+              </div>
             </div>
             
-            <div className="relative">
-              <label className="absolute -top-3 left-4 bg-white px-2 text-sm text-gray-500">New Password</label>
-              <input type="password" placeholder="********" className="text-gray-800 w-full p-4 border border-gray-200 rounded-xl focus:outline-none" />
-            </div>
-
-            <div className="relative">
-              <label className="absolute -top-3 left-4 bg-white px-2 text-sm text-gray-500">Confirm Password</label>
-              <div className="flex items-center border border-gray-200 rounded-xl overflow-hidden pr-4">
-                <input type="password" placeholder="********" className="text-gray-800 w-full p-4 focus:outline-none" />
-                <EyeOff className="text-gray-400" size={20} />
+            {/* New Password */}
+            <div className="relative w-full">
+              <label className="absolute -top-3 left-4 bg-white px-2 text-xs font-semibold text-gray-500 z-10">
+                New Password
+              </label>
+              <div className="relative">
+                <input 
+                  type={showNew ? "text" : "password"} 
+                  placeholder="********" 
+                  className="w-full p-4 border border-gray-200 rounded-xl text-gray-800 focus:outline-none focus:border-[#4f795a] focus:ring-1 focus:ring-[#4f795a] transition-all bg-transparent" 
+                />
+                <button 
+                  type="button"
+                  onClick={() => setShowNew(!showNew)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 z-20"
+                >
+                  {showNew ? <Eye size={20} /> : <EyeOff size={20} />}
+                </button>
               </div>
             </div>
 
-            <button className="w-full bg-[#4f795a] text-white py-4 rounded-xl font-medium hover:bg-[#3d5e46] transition-all mt-4">
+            {/* Confirm Password */}
+            <div className="relative w-full">
+              <label className="absolute -top-3 left-4 bg-white px-2 text-xs font-semibold text-gray-500 z-10">
+                Confirm Password
+              </label>
+              <div className="relative">
+                <input 
+                  type={showConfirm ? "text" : "password"} 
+                  placeholder="********" 
+                  className="w-full p-4 border border-gray-200 rounded-xl text-gray-800 focus:outline-none focus:border-[#4f795a] focus:ring-1 focus:ring-[#4f795a] transition-all bg-transparent" 
+                />
+                <button 
+                  type="button"
+                  onClick={() => setShowConfirm(!showConfirm)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 z-20"
+                >
+                  {showConfirm ? <Eye size={20} /> : <EyeOff size={20} />}
+                </button>
+              </div>
+            </div>
+
+            <button className="w-full bg-[#4f795a] text-white py-4 rounded-xl font-bold text-lg hover:bg-[#3d5e46] hover:shadow-lg transition-all mt-6">
               Confirm
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
