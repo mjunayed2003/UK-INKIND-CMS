@@ -24,18 +24,18 @@ export default function SettingChangePasswordPage() {
           <div className="space-y-6">
             <div className="relative">
               <label className="absolute -top-3 left-4 bg-white px-2 text-sm text-gray-500">Current Password</label>
-              <input type="password" placeholder="********" className="w-full p-4 border border-gray-200 rounded-xl focus:outline-none" />
+              <input type="password" placeholder="********" className="text-gray-800 w-full p-4 border border-gray-200 rounded-xl focus:outline-none" />
             </div>
             
             <div className="relative">
               <label className="absolute -top-3 left-4 bg-white px-2 text-sm text-gray-500">New Password</label>
-              <input type="password" placeholder="********" className="w-full p-4 border border-gray-200 rounded-xl focus:outline-none" />
+              <input type="password" placeholder="********" className="text-gray-800 w-full p-4 border border-gray-200 rounded-xl focus:outline-none" />
             </div>
 
             <div className="relative">
               <label className="absolute -top-3 left-4 bg-white px-2 text-sm text-gray-500">Confirm Password</label>
               <div className="flex items-center border border-gray-200 rounded-xl overflow-hidden pr-4">
-                <input type="password" placeholder="********" className="w-full p-4 focus:outline-none" />
+                <input type="password" placeholder="********" className="text-gray-800 w-full p-4 focus:outline-none" />
                 <EyeOff className="text-gray-400" size={20} />
               </div>
             </div>

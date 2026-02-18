@@ -134,7 +134,7 @@ export default function DashboardPage() {
                   <td className="px-6 py-4 text-gray-600">{user.type}</td>
                   <td className="px-6 py-4">
                     <div className="w-32">
-                      <span className="text-[10px] font-bold font-sans block mb-1">{user.progress}%</span>
+                      <span className="text-[10px] font-bold font-sans block mb-1 text-gray-800">{user.progress}%</span>
                       <div className="w-full bg-[#cbd5cc] h-2 rounded-full">
                         <div className="bg-[#4f795a] h-full rounded-full" style={{ width: `${user.progress}%` }}></div>
                       </div>

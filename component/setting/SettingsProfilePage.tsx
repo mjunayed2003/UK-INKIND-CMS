@@ -20,7 +20,7 @@ export default function SettingProfilePage() {
     const [phone, setPhone] = useState("5735353");
 
     return (
-        <div className="max-w-5xl">
+        <div className="max-w-5xl ">
             {/* Header */}
             <div className="flex justify-between items-center mb-8">
                 <Link
@@ -66,12 +66,12 @@ export default function SettingProfilePage() {
                 <div className="flex-1 space-y-6">
                     {/* Name */}
                     <div>
-                        <label className="block text-gray-500 text-sm mb-2">Name</label>
+                        <label className="block text-gray-800 text-sm mb-2">Name</label>
                         <input
                             type="text"
                             defaultValue="Tamim"
                             disabled={!isEditing}
-                            className="w-full p-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#4f795a] disabled:bg-gray-50"
+                            className="w-full p-3 text-gray-800 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#4f795a] disabled:bg-gray-50"
                         />
                     </div>
 
@@ -82,13 +82,13 @@ export default function SettingProfilePage() {
                             type="email"
                             defaultValue="gddvc@gmail.com"
                             disabled={!isEditing}
-                            className="w-full p-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#4f795a] disabled:bg-gray-50"
+                            className="w-full p-3 text-gray-800 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#4f795a] disabled:bg-gray-50"
                         />
                     </div>
 
                     {/* Phone */}
                     <div>
-                        <label className="block text-gray-500 text-sm mb-2">
+                        <label className="block text-gray-800 text-sm mb-2">
                             Phone Number
                         </label>
 
@@ -99,7 +99,7 @@ export default function SettingProfilePage() {
                                     type="button"
                                     disabled={!isEditing}
                                     onClick={() => setIsOpen(!isOpen)}
-                                    className="flex items-center gap-2 bg-white border border-gray-200 px-3 py-3 rounded-lg min-w-[90px] disabled:bg-gray-50"
+                                    className="flex items-center gap-2 text-gray-800 bg-white border border-gray-200 px-3 py-3 rounded-lg min-w-[90px] disabled:bg-gray-50"
                                 >
                                     <Image
                                         src={`https://flagcdn.com/w20/${selectedCountry.iso}.png`}
@@ -129,7 +129,7 @@ export default function SettingProfilePage() {
                                                     width={20}
                                                     height={15}
                                                 />
-                                                <span className="text-sm">{c.code}</span>
+                                                <span className="text-sm text-gray-800">{c.code}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -142,7 +142,7 @@ export default function SettingProfilePage() {
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
                                 disabled={!isEditing}
-                                className="flex-1 p-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#4f795a] disabled:bg-gray-50"
+                                className="flex-1 p-3 text-gray-800 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#4f795a] disabled:bg-gray-50"
                             />
                         </div>
                     </div>
