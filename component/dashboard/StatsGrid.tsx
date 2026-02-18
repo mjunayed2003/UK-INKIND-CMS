@@ -35,7 +35,7 @@ const StatCard = ({ title, value, percentage, subText }: StatCardProps) => {
 
 export default function StatsGrid() {
   return (
-    <div className="bg-transparent py-2">
+    <div className="bg-transparent py-2  ">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
         <StatCard 
           title="Total Users" 
