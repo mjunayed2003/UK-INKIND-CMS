@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutGrid, Users, FileText, CreditCard, Settings, LogOut, Bell } from 'lucide-react';
+import { LayoutGrid, Users, FileText, CreditCard, Settings, LogOut, Bell, Factory } from 'lucide-react';
 import Image from 'next/image';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -36,6 +36,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <NavItem icon={<FileText size={20} />} label="Content Manager" href="/dashboard/content" />
           <NavItem icon={<CreditCard size={20} />} label="Subscriptions" href="/dashboard/subscriptions" />
           <NavItem icon={<Settings size={20} />} label="Settings" href="/dashboard/settings" />
+          <NavItem icon={<Factory  size={20} />} label="Access" href="/dashboard/access" />
         </nav>
         <div className="p-4 border-t-2 border-gray-300">
           <button onClick={handleLogout} className="flex items-center gap-3 text-gray-500 hover:text-red-600 w-full px-4 py-2">
@@ -47,7 +48,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
       {/* Content Area */}
       <div className="flex-1 ml-[272px] flex flex-col">
-        <header className="flex justify-between items-center bg-white px-8 py-4 shadow-sm sticky top-0 z-20">
+        <header className="flex justify-between items-center bg-white px-8 py-2 shadow-sm sticky top-0 z-20">
           <h2 className="text-gray-600 font-medium font-serif">Saturday, January 10, 2026</h2>
           <div className="flex items-center gap-6">
             <Link href="/dashboard/notifications" className="relative">
