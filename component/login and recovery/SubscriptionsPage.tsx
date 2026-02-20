@@ -96,11 +96,11 @@ export default function SubscriptionsPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" style={{ fontFamily: 'Georgia, serif' }}>
       {/* Header */}
       <section>
-        <h1 className="text-2xl font-serif text-gray-800">Subscription Plans</h1>
-        <p className="text-sm text-gray-500 font-light">Manage pricing tiers, features, and availability.</p>
+        <h1 className="text-2xl font-bold text-gray-800">Subscription Plans</h1>
+        <p className="text-sm text-gray-500">Manage pricing tiers, features, and availability.</p>
       </section>
 
       {/* Plans Grid */}
@@ -116,14 +116,14 @@ export default function SubscriptionsPage() {
                 {plan.visible ? "Active" : "Inactive"}
               </span>
 
-              <h3 className="text-[16px] font-serif font-bold text-gray-800 mb-2">{plan.name}</h3>
+              <h3 className="text-[16px] font-bold text-gray-800 mb-2">{plan.name}</h3>
 
               <div className="flex items-baseline mb-3">
-                <span className="text-[32px] font-bold font-serif text-gray-800">£{plan.price}</span>
-                <span className="text-[12px] text-gray-400 ml-1 font-serif">{plan.period}</span>
+                <span className="text-[32px] font-bold text-gray-800">£{plan.price}</span>
+                <span className="text-[12px] text-gray-400 ml-1">{plan.period}</span>
               </div>
 
-              <p className="text-[14px] text-[#4f795a] font-serif leading-relaxed mb-6 italic">
+              <p className="text-[14px] text-[#4f795a] leading-relaxed mb-6 italic">
                 {plan.tagline}
               </p>
 
@@ -143,7 +143,7 @@ export default function SubscriptionsPage() {
               {/* Features List */}
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex gap-3 text-[14px] text-gray-600 font-serif leading-tight">
+                  <li key={idx} className="flex gap-3 text-[14px] text-gray-600 leading-tight">
                     <Check size={14} className="text-[#4f795a] flex-shrink-0 mt-1" />
                     {feature}
                   </li>
@@ -154,14 +154,14 @@ export default function SubscriptionsPage() {
             {/* Bottom Controls */}
             <div className="mt-auto space-y-6">
               <div className="flex items-center justify-between">
-                <div className="text-[12px]">
-                  <p className="font-bold text-gray-800">Plan Status</p>
-                  <p className="text-gray-400 font-light">
+                <div className="">
+                  <p className="font-bold text-gray-800 text-[16px]">Plan Status</p>
+                  <p className="text-gray-400 text-[14px]">
                     {plan.visible ? "Visible to users" : "Hidden from users"}
                   </p>
                 </div>
 
-                {/* Toggle Switch (FIXED) */}
+                {/* Toggle Switch */}
                 <div
                   onClick={() => handleToggleVisibility(plan.id)}
                   className={`w-10 h-5 rounded-full relative cursor-pointer transition-colors duration-300 ${
@@ -199,7 +199,7 @@ export default function SubscriptionsPage() {
   );
 }
 
-// --- MODAL COMPONENT (Unchanged) ---
+// --- MODAL COMPONENT ---
 
 interface EditPlanModalProps {
   plan: Plan;
@@ -231,18 +231,18 @@ function EditPlanModal({ plan, onSave, onClose }: EditPlanModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4" style={{ fontFamily: 'Georgia, serif' }}>
       <div className="bg-white w-full max-w-[580px] rounded-3xl shadow-2xl p-8 relative animate-in fade-in zoom-in duration-200 flex flex-col max-h-[90vh]">
         <button onClick={onClose} className="absolute right-6 top-6 text-gray-400 hover:text-gray-600 z-10">
           <X size={24} />
         </button>
 
-        <h2 className="text-xl font-serif text-gray-800 mb-8 flex-shrink-0">Edit {plan.name}</h2>
+        <h2 className="text-xl font-bold text-gray-800 mb-8 flex-shrink-0">Edit {plan.name}</h2>
 
         <div className="space-y-6 overflow-y-auto pr-2 custom-scrollbar">
           <div className="grid grid-cols-2 gap-4 text-gray-800">
             <div className="space-y-2">
-              <label className="text-sm font-serif">Plan Name</label>
+              <label className="text-sm">Plan Name</label>
               <input
                 name="name"
                 type="text"
@@ -252,7 +252,7 @@ function EditPlanModal({ plan, onSave, onClose }: EditPlanModalProps) {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-serif">Tagline</label>
+              <label className="text-sm">Tagline</label>
               <input
                 name="tagline"
                 type="text"
@@ -262,7 +262,7 @@ function EditPlanModal({ plan, onSave, onClose }: EditPlanModalProps) {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-serif">Plan Price (£)</label>
+              <label className="text-sm">Plan Price (£)</label>
               <input
                 name="price"
                 type="text"
@@ -272,7 +272,7 @@ function EditPlanModal({ plan, onSave, onClose }: EditPlanModalProps) {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-serif">Period</label>
+              <label className="text-sm">Period</label>
               <div className="relative">
                 <select
                   name="period"
@@ -291,7 +291,7 @@ function EditPlanModal({ plan, onSave, onClose }: EditPlanModalProps) {
 
           <div className="space-y-4">
             <div className="flex justify-between items-center">
-              <h3 className="text-sm font-serif text-gray-800">Features</h3>
+              <h3 className="text-sm text-gray-800">Features</h3>
               <button
                 onClick={handleAddFeature}
                 className="bg-[#4f795a] text-white px-4 py-2 rounded-lg flex items-center gap-2 text-xs font-bold hover:bg-[#3d5e46] transition-colors"
@@ -324,13 +324,13 @@ function EditPlanModal({ plan, onSave, onClose }: EditPlanModalProps) {
         <div className="grid grid-cols-2 gap-4 pt-6 mt-auto flex-shrink-0 bg-white border-t border-gray-50">
           <button
             onClick={onClose}
-            className="py-3 bg-[#e9edf5] text-gray-700 rounded-xl font-bold font-serif hover:bg-gray-200 transition-colors"
+            className="py-3 bg-[#e9edf5] text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition-colors"
           >
             Cancel
           </button>
           <button
             onClick={() => onSave(formData)}
-            className="py-3 bg-[#4f795a] text-white rounded-xl font-bold font-serif hover:bg-[#3d5e46] transition-colors"
+            className="py-3 bg-[#4f795a] text-white rounded-xl font-bold hover:bg-[#3d5e46] transition-colors"
           >
             Save Change
           </button>
