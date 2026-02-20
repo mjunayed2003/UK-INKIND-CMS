@@ -19,7 +19,7 @@ function NavItem({ icon, label, href }: { icon: React.ReactNode, label: string, 
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     localStorage.removeItem("token");
     router.push("/login");
   }
@@ -35,8 +35,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <NavItem icon={<Users size={20} />} label="Users" href="/dashboard/users" />
           <NavItem icon={<FileText size={20} />} label="Content Manager" href="/dashboard/content" />
           <NavItem icon={<CreditCard size={20} />} label="Subscriptions" href="/dashboard/subscriptions" />
+          <NavItem icon={<Factory size={20} />} label="Access" href="/dashboard/access" />
           <NavItem icon={<Settings size={20} />} label="Settings" href="/dashboard/settings" />
-          <NavItem icon={<Factory  size={20} />} label="Access" href="/dashboard/access" />
         </nav>
         <div className="p-4 border-t-2 border-gray-300">
           <button onClick={handleLogout} className="flex items-center gap-3 text-gray-500 hover:text-red-600 w-full px-4 py-2">
@@ -52,13 +52,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <h2 className="text-gray-600 font-medium font-serif">Saturday, January 10, 2026</h2>
           <div className="flex items-center gap-6">
             <Link href="/dashboard/notifications" className="relative">
-            <div className='border-r-2 border-gray-300 pr-4'><Bell size={22} className="text-gray-400" /></div>
+              <div className='border-r-2 border-gray-300 pr-4'><Bell size={22} className="text-gray-400" /></div>
             </Link>
             <Link href="/dashboard/settings" className="flex items-center gap-3 hover:bg-gray-100 rounded-lg px-3 py-2 transition-colors">
-            <div className="flex items-center gap-3">
-              <Image src="/image/profile-pic.png" alt="User" className="rounded-full border-2 border-orange-200" width={40} height={40} />
-              <div className="text-left"><p className="text-sm font-bold text-gray-800">Jane Cooper</p><p className="text-xs text-gray-400">Admin</p></div>
-            </div>
+              <div className="flex items-center gap-3">
+                <Image src="/image/profile-pic.png" alt="User" className="rounded-full border-2 border-orange-200" width={40} height={40} />
+                <div className="text-left"><p className="text-sm font-bold text-gray-800">Jane Cooper</p><p className="text-xs text-gray-400">Admin</p></div>
+              </div>
             </Link>
           </div>
         </header>

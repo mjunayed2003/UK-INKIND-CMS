@@ -85,7 +85,7 @@ export default function AccessPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fdfbf7] p-4 md:p-8 font-serif text-gray-800">
+    <div className="min-h-screen   md:p-8 font-sans text-gray-800">
       
       {/* Header */}
       <div className="flex items-center gap-2 mb-8 text-gray-700">
@@ -136,102 +136,127 @@ export default function AccessPage() {
         </div>
       </div>
 
-      {/* --- USER DETAILS MODAL (RESPONSIVE FIX) --- */}
+      {/* --- NEW UPDATED MODAL (IMAGE DESIGN) --- */}
       {selectedUser && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
-          {/* Added max-h-[90vh] and flex-col to keep header/footer visible */}
-          <div className="bg-white w-full max-w-[650px] max-h-[90vh] flex flex-col rounded-3xl shadow-2xl animate-in fade-in zoom-in duration-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm p-4 font-sans">
+          {/* Modal Card */}
+          <div className="bg-white w-full max-w-[600px] flex flex-col rounded-2xl shadow-2xl max-h-[90vh] overflow-hidden animate-in fade-in zoom-in duration-200">
             
-            {/* Modal Header (Fixed at Top) */}
-            <div className="flex justify-between items-center px-8 py-6 border-b border-gray-100 flex-shrink-0">
-              <h2 className="text-xl font-bold text-gray-800">User Details</h2>
-              <button onClick={() => setSelectedUser(null)} className="text-gray-400 hover:text-gray-600">
+            {/* Modal Header */}
+            <div className="flex justify-between items-center px-6 py-4 bg-white border-b border-gray-50 z-10">
+              <h2 className="text-xl font-bold text-gray-700">User Details</h2>
+              <button 
+                onClick={() => setSelectedUser(null)} 
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
                 <X size={24} />
               </button>
             </div>
 
-            {/* Modal Content Wrapper (Scrollable) */}
-            <div className="overflow-y-auto p-6 md:p-8 space-y-6">
+            {/* Scrollable Content with Cream Background */}
+            <div className="overflow-y-auto bg-[#FFF9F2] p-6 space-y-8">
               
-              {/* User Basic Info */}
-              <div className="bg-[#fffcf7] p-6 rounded-2xl border border-[#f7f0e6]">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <p className="text-gray-400 text-[10px] mb-1 uppercase tracking-wide font-bold">User ID</p>
-                    <p className="text-gray-700 font-medium">{selectedUser.id}</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-[10px] mb-1 uppercase tracking-wide font-bold">Email</p>
-                    <p className="text-gray-800 font-serif break-all">{selectedUser.email}</p>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <p className="text-gray-400 text-[10px] mb-1 uppercase tracking-wide font-bold">Joined Date</p>
-                    <p className="text-gray-700 font-medium">{selectedUser.joinedDate}</p>
-                  </div>
+              {/* Top Info Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-4">
+                <div>
+                  <p className="text-[#9CA3AF] text-sm mb-1 font-medium">User ID</p>
+                  <p className="text-gray-800 text-[15px]">{selectedUser.id}</p>
+                </div>
+                <div>
+                  <p className="text-[#9CA3AF] text-sm mb-1 font-medium">Email</p>
+                  <p className="text-gray-800 font-serif text-[15px]">{selectedUser.email}</p>
+                </div>
+                <div>
+                  <p className="text-[#9CA3AF] text-sm mb-1 font-medium">Joined Date</p>
+                  <p className="text-gray-800 text-[15px]">{selectedUser.joinedDate}</p>
+                </div>
+                <div>
+                  <p className="text-[#9CA3AF] text-sm mb-1 font-medium">Status</p>
+                  <p className="text-gray-800 text-[15px]">{selectedUser.status}</p>
                 </div>
               </div>
 
-              {/* Assessment Results Card */}
-              <div className="bg-[#fff9f2] border border-[#fceebb] rounded-xl p-6">
-                <h3 className="text-lg font-serif text-gray-700 mb-4 border-b border-[#ebdcc7] pb-2">Your Assessment Results</h3>
+              {/* Assessment Results Section */}
+              <div className="bg-[#FFF9F2] rounded-xl border border-[#F5EAD9] p-5">
+                <h3 className="text-xl font-serif text-[#8c9bab] mb-4">Assessment Results</h3>
                 
                 <div className="space-y-4">
-                  <div>
-                    <p className="text-[#8c9bab] text-sm font-medium">Depression (PHQ-9)</p>
-                    <p className="text-sm text-gray-800">
-                      <span className="font-bold">{selectedUser.assessment.phq9.level}</span>
-                      <span className="text-[#8c9bab]"> (Score: {selectedUser.assessment.phq9.score})</span>
+                  {/* Depression */}
+                  <div className="border-b border-[#EAE0D5] pb-3 last:border-0 last:pb-0">
+                    <p className="text-[#9CA3AF] font-serif text-sm mb-1">Depression (PHQ-9)</p>
+                    <p className="text-sm">
+                      <span className="font-bold text-gray-800">{selectedUser.assessment.phq9.level}</span>
+                      <span className="text-[#9CA3AF] ml-1 text-xs">(Score: {selectedUser.assessment.phq9.score})</span>
                     </p>
-                    <div className="h-[1px] bg-[#ebdcc7] mt-2 w-full"></div>
                   </div>
-                  <div>
-                    <p className="text-[#8c9bab] text-sm font-medium">Anxiety (GAD-7)</p>
-                    <p className="text-sm text-gray-800">
-                      <span className="font-bold">{selectedUser.assessment.gad7.level}</span>
-                      <span className="text-[#8c9bab]"> (Score: {selectedUser.assessment.gad7.score})</span>
+                  {/* Anxiety */}
+                  <div className="border-b border-[#EAE0D5] pb-3 last:border-0 last:pb-0">
+                    <p className="text-[#9CA3AF] font-serif text-sm mb-1">Anxiety (GAD-7)</p>
+                    <p className="text-sm">
+                      <span className="font-bold text-gray-800">{selectedUser.assessment.gad7.level}</span>
+                      <span className="text-[#9CA3AF] ml-1 text-xs">(Score: {selectedUser.assessment.gad7.score})</span>
                     </p>
-                    <div className="h-[1px] bg-[#ebdcc7] mt-2 w-full"></div>
                   </div>
+                  {/* Dissociation */}
                   <div>
-                    <p className="text-[#8c9bab] text-sm font-medium">Dissociation (DES-II)</p>
-                    <p className="text-sm text-gray-800">
-                      <span className="font-bold">Score: {selectedUser.assessment.des2.score}</span>
+                    <p className="text-[#9CA3AF] font-serif text-sm mb-1">Dissociation (DES-II)</p>
+                    <p className="text-sm">
+                      <span className="font-bold text-gray-800">Score: {selectedUser.assessment.des2.score}</span>
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Immediate Support Available Card */}
-              <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
-                <h3 className="text-lg font-serif text-[#8c9bab] mb-4">Immediate Support Available</h3>
+              {/* Immediate Support Available Section */}
+              <div>
+                <h3 className="text-xl font-serif text-[#8c9bab] mb-4 pl-1">Immediate Support Available</h3>
                 
-                <div className="space-y-5">
-                  {[
-                    { title: "Samaritans (24/7)", subtitle: "Free emotional support", contact: "Call: 116 123" },
-                    { title: "NHS Crisis Line", subtitle: "Urgent mental health support", contact: "Call: 111" },
-                    { title: "SHOUT Crisis Text Line", subtitle: "24/7 text support", contact: 'Text "SHOUT" to 85258' },
-                  ].map((item, idx) => (
-                    <div key={idx}>
-                      <p className="font-bold text-gray-800 text-sm">{item.title}</p>
-                      <p className="text-xs text-gray-500 mt-0.5">{item.subtitle}</p>
-                      <p className="text-xs text-gray-800 font-medium mt-1">{item.contact}</p>
-                    </div>
-                  ))}
+                <div className="bg-white rounded-xl p-6 shadow-sm space-y-5">
+                  {/* Item 1 */}
+                  <div>
+                    <p className="font-bold text-gray-800 text-sm font-serif">Samaritans (24/7)</p>
+                    <p className="text-xs text-gray-500 mt-1">Free emotional support for anyone in distress</p>
+                    <p className="text-xs text-gray-800 font-bold mt-1 font-serif">
+                      Call: 116 123 <span className="text-[#9CA3AF] font-normal font-sans">(Free from any phone)</span>
+                    </p>
+                  </div>
+                  {/* Item 2 */}
+                  <div>
+                    <p className="font-bold text-gray-800 text-sm font-serif">NHS Crisis Line</p>
+                    <p className="text-xs text-gray-500 mt-1">Urgent mental health support</p>
+                    <p className="text-xs text-gray-800 font-bold mt-1 font-serif">
+                      Call: 111 <span className="text-[#9CA3AF] font-normal font-sans">and select mental health option</span>
+                    </p>
+                  </div>
+                  {/* Item 3 */}
+                  <div>
+                    <p className="font-bold text-gray-800 text-sm font-serif">SHOUT Crisis Text Line</p>
+                    <p className="text-xs text-gray-500 mt-1">24/7 text support for anyone in crisis</p>
+                    <p className="text-xs text-gray-800 font-normal mt-1 font-serif">
+                      Text "<span className="font-bold">SHOUT</span>" to <span className="font-bold">85258</span>
+                    </p>
+                  </div>
+                  {/* Item 4 */}
+                  <div>
+                    <p className="font-bold text-gray-800 text-sm font-serif">Your GP Surgery</p>
+                    <p className="text-xs text-gray-500 mt-1">Contact your GP for an urgent appointment</p>
+                    <p className="text-xs text-gray-500 mt-0.5">They can provide immediate support and referrals</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Modal Actions Footer (Fixed at Bottom) */}
-            <div className="p-6 border-t border-gray-100 flex gap-4 flex-shrink-0 bg-white rounded-b-3xl">
+            {/* Footer Buttons */}
+            <div className="p-5 bg-white border-t border-gray-100 flex gap-4">
               <button 
-                onClick={() => handleStatusChange(selectedUser.id, 'Cancelled')}
-                className="flex-1 py-3 bg-white border border-gray-200 text-gray-700 rounded-xl font-serif font-bold hover:bg-gray-50 transition-colors shadow-sm"
+                onClick={() => setSelectedUser(null)}
+                className="flex-1 py-3 bg-[#F9FAFB] text-[#4F7A5B] rounded-lg font-serif font-bold text-lg hover:bg-gray-100 transition-colors shadow-sm border border-gray-200"
               >
                 Cancel
               </button>
               <button 
                 onClick={() => handleStatusChange(selectedUser.id, 'Approved')}
-                className="flex-1 py-3 bg-[#4f795a] text-white rounded-xl font-serif font-bold hover:bg-[#3d5e46] transition-colors shadow-md"
+                className="flex-1 py-3 bg-[#4F7A5B] text-white rounded-lg font-serif font-bold text-lg hover:bg-[#3E634A] transition-colors shadow-md"
               >
                 Approve
               </button>

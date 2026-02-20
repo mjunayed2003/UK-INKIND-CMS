@@ -89,8 +89,8 @@ export default function DashboardPage() {
           <div className="space-y-8">
             {['Rockstar', 'Hero', 'Prime', 'Main', 'Free'].map((plan) => (
               <div key={plan} className="space-y-2">
-                <div className="flex justify-between font-serif"><span className='text-gray-500'>{plan}</span> <p className="text-2xl font-bold text-gray-500">
-                  <span className="text-2xl font-normal text-gray-800 mr-2">89 User</span>
+                <div className="flex justify-between font- "><span className='text-gray-500'>{plan}</span> <p className="text-[14px] font-bold text-gray-500">
+                  <span className="text-[14px] font-normal text-gray-800 mr-2">89 User</span>
                   £45/Month
                 </p>
                 </div>
