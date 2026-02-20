@@ -18,7 +18,7 @@ export default function RecoverAccountPage() {
             {/* Left Side: Form Content */}
             <div className="flex flex-col justify-center w-full px-8 py-12 lg:w-1/2 bg-[#4f795a] text-white sm:px-16 lg:px-24">
                 <div className="max-w-md mx-auto lg:mx-0 w-full">
-                    <h1 className="mb-2 text-3xl font-serif">Recover Account</h1>
+                    <h1 className="mb-2 text-3xl  ">Recover Account</h1>
                     <p className="mb-10 text-sm font-light text-gray-200">
                         Enter your email and we will send you a recovery code
                     </p>

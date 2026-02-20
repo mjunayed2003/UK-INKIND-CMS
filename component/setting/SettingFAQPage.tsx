@@ -91,19 +91,19 @@ export default function SettingFAQPage() {
         <table className="w-full text-left">
           <thead className="bg-[#f8faf9] border-b border-gray-100">
             <tr>
-              <th className="p-5 text-xs font-bold text-gray-500 uppercase tracking-wider font-serif">ID</th>
-              <th className="p-5 text-xs font-bold text-gray-500 uppercase tracking-wider font-serif">Questions</th>
-              <th className="p-5 text-xs font-bold text-gray-500 uppercase tracking-wider font-serif">Answer</th>
-              <th className="p-5 text-xs font-bold text-gray-500 uppercase tracking-wider text-center font-serif">Action</th>
+              <th className="p-5 text-xs font-bold text-gray-500 uppercase tracking-wider  ">ID</th>
+              <th className="p-5 text-xs font-bold text-gray-500 uppercase tracking-wider  ">Questions</th>
+              <th className="p-5 text-xs font-bold text-gray-500 uppercase tracking-wider  ">Answer</th>
+              <th className="p-5 text-xs font-bold text-gray-500 uppercase tracking-wider text-center  ">Action</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-50">
             {faqs.length > 0 ? (
               faqs.map((faq) => (
                 <tr key={faq.id} className="hover:bg-gray-50 transition-colors">
-                  <td className="p-5 text-sm text-gray-400 font-sans">#{faq.id}</td>
-                  <td className="p-5 text-sm text-gray-800 font-medium font-serif">{faq.question}</td>
-                  <td className="p-5 text-sm text-gray-500 max-w-md font-sans leading-relaxed">{faq.answer}</td>
+                  <td className="p-5 text-sm text-gray-400  ">#{faq.id}</td>
+                  <td className="p-5 text-sm text-gray-800 font-medium  ">{faq.question}</td>
+                  <td className="p-5 text-sm text-gray-500 max-w-md   leading-relaxed">{faq.answer}</td>
                   <td className="p-5">
                     <div className="flex justify-center gap-3">
                       <button 
@@ -140,7 +140,7 @@ export default function SettingFAQPage() {
             
             {/* Modal Header */}
             <div className="flex justify-between items-center px-6 py-4 border-b border-gray-100">
-              <h3 className="text-lg font-serif font-bold text-gray-800">
+              <h3 className="text-lg   font-bold text-gray-800">
                 {currentFaq ? 'Edit FAQ' : 'Add New FAQ'}
               </h3>
               <button onClick={() => setIsModalOpen(false)} className="text-gray-400 hover:text-gray-600 transition-colors">
@@ -151,7 +151,7 @@ export default function SettingFAQPage() {
             {/* Modal Body */}
             <div className="p-6 space-y-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700 font-serif">Question</label>
+                <label className="text-sm font-medium text-gray-700  ">Question</label>
                 <input 
                   type="text" 
                   value={formData.question}
@@ -162,7 +162,7 @@ export default function SettingFAQPage() {
               </div>
               
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700 font-serif">Answer</label>
+                <label className="text-sm font-medium text-gray-700  ">Answer</label>
                 <textarea 
                   rows={4}
                   value={formData.answer}

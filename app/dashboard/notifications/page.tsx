@@ -98,7 +98,7 @@ export default function NotificationsPage() {
           <ArrowLeft size={20} />
         </button>
         <div>
-          <h1 className="text-3xl font-serif text-gray-800">Notifications</h1>
+          <h1 className="text-3xl text-gray-800">Notifications</h1>
           <p className="text-gray-500 text-sm">Stay updated with recent platform activities.</p>
         </div>
       </div>
@@ -145,7 +145,7 @@ export default function NotificationsPage() {
                 {/* Content */}
                 <div className="flex-1">
                   <div className="flex justify-between items-start">
-                    <h4 className={`text-base font-serif mb-1 ${!notification.read ? 'text-gray-800 font-bold' : 'text-gray-600'}`}>
+                    <h4 className={`text-base   mb-1 ${!notification.read ? 'text-gray-800 font-bold' : 'text-gray-600'}`}>
                       {notification.title}
                     </h4>
                     <span className="flex items-center gap-1 text-xs text-gray-400 whitespace-nowrap">
@@ -175,7 +175,7 @@ export default function NotificationsPage() {
         ) : (
           <div className="p-12 text-center text-gray-400 flex flex-col items-center">
             <Bell size={48} className="mb-4 opacity-20" />
-            <p className="font-serif text-lg">No notifications found</p>
+            <p className="  text-lg">No notifications found</p>
           </div>
         )}
       </div>

@@ -15,7 +15,7 @@ export default function SettingsPage() {
   return (
     <div className="max-w-4xl">
       <div className="mb-6">
-        <h1 className="text-2xl font-serif text-gray-800 font-semibold">System Settings</h1>
+        <h1 className="text-2xl   text-gray-800 font-semibold">System Settings</h1>
         <p className="text-gray-500 text-sm italic">Manage your account, platform features, and system configuration</p>
       </div>
 

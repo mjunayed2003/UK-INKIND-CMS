@@ -25,7 +25,7 @@ export default function UsersPage() {
     <div className="space-y-6">
       {/* Header Section */}
       <section>
-        <h1 className="text-2xl font-semibold text-gray-800 font-serif">User Monitoring</h1>
+        <h1 className="text-2xl font-semibold text-gray-800  ">User Monitoring</h1>
         <p className="text-gray-500 text-sm">View user progress and account details.</p>
       </section>
 
@@ -49,7 +49,7 @@ export default function UsersPage() {
         <div className="overflow-x-auto">
           <table className="w-full border-separate border-spacing-y-4">
             <thead>
-              <tr className="bg-[#76977e] text-white font-serif">
+              <tr className="bg-[#76977e] text-white  ">
                 <th className="px-6 py-4 font-normal text-left rounded-l-2xl">User Name</th>
                 <th className="px-6 py-4 font-normal text-left">Email</th>
                 <th className="px-6 py-4 font-normal text-left">Subscription</th>
@@ -61,9 +61,9 @@ export default function UsersPage() {
             </thead>
             <tbody>
               {usersData.map((user, index) => (
-                <tr key={index} className="text-[#333] font-serif group">
+                <tr key={index} className="text-[#333]   group">
                   <td className="px-6 py-4">{user.name}</td>
-                  <td className="px-6 py-4 text-gray-500 font-sans">{user.email}</td>
+                  <td className="px-6 py-4 text-gray-500  ">{user.email}</td>
                   <td className="px-6 py-4">
                     <span className="px-4 py-1 border border-[#4f795a]/20 text-[#2db394] rounded-lg text-sm">
                       {user.plan}
@@ -72,14 +72,14 @@ export default function UsersPage() {
                   <td className="px-6 py-4">{user.type}</td>
                   <td className="px-6 py-4">
                     <div className="w-32">
-                      <span className="text-[10px] font-bold font-sans block mb-1">{user.progress}%</span>
+                      <span className="text-[10px] font-bold   block mb-1">{user.progress}%</span>
                       <div className="w-full bg-[#cbd5cc] h-2 rounded-full">
                         <div className="bg-[#4f795a] h-full rounded-full" style={{ width: `${user.progress}%` }}></div>
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
-                    <span className={`px-4 py-1 rounded-xl text-xs font-sans border ${
+                    <span className={`px-4 py-1 rounded-xl text-xs   border ${
                       index % 2 === 0 ? 'bg-[#f4faf7] text-[#2db394] border-[#2db394]/10' : 'bg-[#fff5f5] text-[#f25c5c] border-[#f25c5c]/10'
                     }`}>
                       {index % 2 === 0 ? 'Active' : 'Suspended'}
@@ -93,7 +93,7 @@ export default function UsersPage() {
                       <div className="w-5 h-5 flex items-center justify-center">
                         <Eye />
                       </div>
-                      <span className="font-sans font-medium text-sm">View</span>
+                      <span className="  font-medium text-sm">View</span>
                     </button>
                   </td>
                 </tr>
@@ -128,7 +128,7 @@ export default function UsersPage() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm mb-1">Email</p>
-                    <p className="text-gray-800 font-serif">{selectedUser.email}</p>
+                    <p className="text-gray-800  ">{selectedUser.email}</p>
                   </div>
 
                   <div>
@@ -163,7 +163,7 @@ export default function UsersPage() {
 
                 {/* Progress Bar Section */}
                 <div>
-                  <p className="font-serif text-gray-800 mb-3">Overall Progress</p>
+                  <p className="  text-gray-800 mb-3">Overall Progress</p>
                   <div className="relative w-full bg-[#dce6e0] h-7 rounded-full overflow-hidden flex items-center px-1">
                     <div 
                       className="bg-[#4f795a] h-5 rounded-full" 

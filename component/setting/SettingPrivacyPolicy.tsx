@@ -31,7 +31,7 @@ export default function SettingPrivacyPolicy() {
         )}
 
         <div className="text-gray-700 space-y-6" contentEditable={isEditing}>
-          <h2 className="text-xl font-bold font-serif">Privacy Policy Overview</h2>
+          <h2 className="text-xl font-bold  ">Privacy Policy Overview</h2>
           <p>At UK INKIND, we take your privacy seriously. This policy explains how we collect, use, and protect your personal information.</p>
           
           <h3 className="text-lg font-semibold">1. Data We Collect</h3>

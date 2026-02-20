@@ -15,7 +15,7 @@ export default function LoginPage() {
             {/* Left Side: Login Form */}
             <div className="flex flex-col justify-center w-full px-8 py-12 lg:w-1/2 bg-[#4f795a] text-white sm:px-16 lg:px-24">
                 <div className="max-w-md mx-auto lg:mx-0 w-full">
-                    <h1 className="mb-8 text-4xl font-serif">Login to your account</h1>
+                    <h1 className="mb-8 text-4xl  ">Login to your account</h1>
 
                     <form
                         className="space-y-6"

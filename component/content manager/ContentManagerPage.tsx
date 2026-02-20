@@ -87,10 +87,10 @@ export default function ContentManagerPage() {
   };
 
   return (
-    <div className="space-y-6 font-serif">
+    <div className="space-y-6  ">
       <div className="flex justify-between items-start">
         <section>
-          <h1 className="text-2xl font-serif text-gray-800">Content Manager</h1>
+          <h1 className="text-2xl   text-gray-800">Content Manager</h1>
           <p className="text-gray-500 text-sm font-light">Upload and manage media assets for sessions and roadmaps.</p>
         </section>
         <button 
@@ -106,7 +106,7 @@ export default function ContentManagerPage() {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`pb-2 px-1 text-lg font-serif transition-all relative ${
+            className={`pb-2 px-1 text-lg   transition-all relative ${
               activeTab === tab ? "text-[#6B8E76] border-b-2 border-[#6B8E76]" : "text-gray-800"
             }`}
           >
@@ -118,7 +118,7 @@ export default function ContentManagerPage() {
       <div className="bg-white rounded-[2rem] p-4 shadow-sm border border-gray-50 overflow-hidden">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="bg-[#f0f4f1] text-[#6B8E76] font-serif rounded-xl overflow-hidden text-sm uppercase tracking-wide">
+            <tr className="bg-[#f0f4f1] text-[#6B8E76]   rounded-xl overflow-hidden text-sm uppercase tracking-wide">
               <th className="px-6 py-4 font-bold rounded-l-xl">Preview</th>
               <th className="px-6 py-4 font-bold">Name</th>
               <th className="px-6 py-4 font-bold">Category</th>
@@ -130,7 +130,7 @@ export default function ContentManagerPage() {
           <tbody className="divide-y divide-gray-50">
             {filteredContent.length > 0 ? (
               filteredContent.map((item) => (
-                <tr key={item.id} className="text-gray-700 font-serif hover:bg-gray-50 transition-colors">
+                <tr key={item.id} className="text-gray-700   hover:bg-gray-50 transition-colors">
                   <td className="px-6 py-4">
                     <div className="relative w-20 h-14 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center border border-gray-200 shadow-sm">
                       {item.type === 'Images' ? (
@@ -147,8 +147,8 @@ export default function ContentManagerPage() {
                     </div>
                   </td>
                   <td className="px-6 py-4 font-medium">{item.name}</td>
-                  <td className="px-6 py-4 text-gray-500 font-sans">{item.category}</td>
-                  <td className="px-6 py-4 text-gray-500 font-sans">{item.assignedTo}</td>
+                  <td className="px-6 py-4 text-gray-500  ">{item.category}</td>
+                  <td className="px-6 py-4 text-gray-500  ">{item.assignedTo}</td>
                   <td className="px-6 py-4 text-center">
                     <span className={`px-4 py-1 rounded-full text-xs font-bold border ${item.status === 'Active' ? 'bg-[#f4faf7] text-[#2db394] border-[#2db394]/10' : 'bg-gray-100 text-gray-500'}`}>
                       {item.status}
@@ -175,7 +175,7 @@ export default function ContentManagerPage() {
               ))
             ) : (
               <tr>
-                <td colSpan={6} className="text-center py-12 text-gray-400 font-serif italic">
+                <td colSpan={6} className="text-center py-12 text-gray-400   italic">
                   No {activeTab.toLowerCase()} found.
                 </td>
               </tr>
@@ -195,7 +195,7 @@ export default function ContentManagerPage() {
 
       {/* --- VIEW DETAILS MODAL (New) --- */}
       {selectedContent && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4 font-serif">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4  ">
           <div className="bg-white w-full max-w-[600px] rounded-xl shadow-2xl animate-in fade-in zoom-in duration-200 overflow-hidden flex flex-col">
             
             {/* Header */}
@@ -221,7 +221,7 @@ export default function ContentManagerPage() {
                     <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
                        <Play size={24} className="text-white fill-white ml-1" />
                     </div>
-                    <p className="text-white/70 text-sm font-sans">Preview Video</p>
+                    <p className="text-white/70 text-sm  ">Preview Video</p>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center gap-4">
@@ -248,7 +248,7 @@ export default function ContentManagerPage() {
 
                   <div>
                     <p className="text-[#9CA3AF] text-xs font-normal mb-1.5">Category</p>
-                    <p className="text-gray-800 font-serif text-[15px]">{selectedContent.category}</p>
+                    <p className="text-gray-800   text-[15px]">{selectedContent.category}</p>
                   </div>
 
                   <div>
@@ -345,7 +345,7 @@ function UploadModal({ onClose, onUpload, activeTab }: UploadModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm font-serif">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm  ">
       <div className="bg-white w-full max-w-[650px] rounded-xl shadow-2xl p-8 relative animate-in fade-in zoom-in duration-200">
         
         <div className="flex justify-between items-center mb-6">
@@ -376,7 +376,7 @@ function UploadModal({ onClose, onUpload, activeTab }: UploadModalProps) {
           </div>
 
           <div className="pt-2">
-            <p className="text-[15px] text-gray-800 mb-4 font-serif">
+            <p className="text-[15px] text-gray-800 mb-4  ">
               SVG, PNG, JPG, MP4 or MP3 (max. 10MB)
             </p>
             <div className="flex items-center gap-4">
@@ -386,7 +386,7 @@ function UploadModal({ onClose, onUpload, activeTab }: UploadModalProps) {
               >
                 Choose File
               </button>
-              <span className="text-[15px] text-gray-800 font-serif">
+              <span className="text-[15px] text-gray-800  ">
                 {selectedFile ? selectedFile.name : "No File Chosen"}
               </span>
             </div>
@@ -395,22 +395,22 @@ function UploadModal({ onClose, onUpload, activeTab }: UploadModalProps) {
 
         <div className="grid grid-cols-2 gap-x-8 gap-y-6 mb-8">
           <div className="space-y-2">
-            <label className="text-[17px] text-gray-900 font-serif">Name</label>
+            <label className="text-[17px] text-gray-900  ">Name</label>
             <input 
               type="text" 
               value={formData.name}
               onChange={(e) => setFormData({...formData, name: e.target.value})}
-              className="w-full px-4 py-3 bg-[#FCFCFD] border border-gray-100 rounded-lg text-gray-800 outline-none focus:border-[#6B8E76] focus:ring-1 focus:ring-[#6B8E76] transition-all font-serif" 
+              className="w-full px-4 py-3 bg-[#FCFCFD] border border-gray-100 rounded-lg text-gray-800 outline-none focus:border-[#6B8E76] focus:ring-1 focus:ring-[#6B8E76] transition-all  " 
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-[17px] text-gray-900 font-serif">Category</label>
+            <label className="text-[17px] text-gray-900  ">Category</label>
             <div className="relative">
               <select 
                 value={formData.category}
                 onChange={(e) => setFormData({...formData, category: e.target.value})}
-                className="w-full px-4 py-3 bg-[#FCFCFD] border border-gray-100 rounded-lg text-gray-800 appearance-none outline-none focus:border-[#6B8E76] font-serif cursor-pointer"
+                className="w-full px-4 py-3 bg-[#FCFCFD] border border-gray-100 rounded-lg text-gray-800 appearance-none outline-none focus:border-[#6B8E76]   cursor-pointer"
               >
                 <option>Background</option>
                 <option>Thumbnail</option>
@@ -421,12 +421,12 @@ function UploadModal({ onClose, onUpload, activeTab }: UploadModalProps) {
           </div>
 
           <div className="space-y-2">
-            <label className="text-[17px] text-gray-900 font-serif">Status</label>
+            <label className="text-[17px] text-gray-900  ">Status</label>
             <div className="relative">
               <select 
                 value={formData.status}
                 onChange={(e) => setFormData({...formData, status: e.target.value as 'Active' | 'Inactive'})}
-                className={`w-full px-4 py-3 bg-[#FCFCFD] border border-gray-100 rounded-lg appearance-none outline-none focus:border-[#6B8E76] font-serif cursor-pointer ${
+                className={`w-full px-4 py-3 bg-[#FCFCFD] border border-gray-100 rounded-lg appearance-none outline-none focus:border-[#6B8E76]   cursor-pointer ${
                   formData.status === 'Active' ? 'text-[#10B981]' : 'text-gray-500'
                 }`}
               >
@@ -438,11 +438,11 @@ function UploadModal({ onClose, onUpload, activeTab }: UploadModalProps) {
           </div>
 
           <div className="space-y-2">
-            <label className="text-[17px] text-gray-900 font-serif">Assigned To</label>
+            <label className="text-[17px] text-gray-900  ">Assigned To</label>
             <div className="flex gap-4">
                <div className="relative w-full">
                 <select 
-                  className="w-full px-4 py-3 bg-[#FCFCFD] border border-gray-100 rounded-lg text-gray-800 appearance-none outline-none focus:border-[#6B8E76] font-serif cursor-pointer"
+                  className="w-full px-4 py-3 bg-[#FCFCFD] border border-gray-100 rounded-lg text-gray-800 appearance-none outline-none focus:border-[#6B8E76]   cursor-pointer"
                 >
                   <option>Session 1</option>
                   <option>Session 2</option>
@@ -451,7 +451,7 @@ function UploadModal({ onClose, onUpload, activeTab }: UploadModalProps) {
               </div>
               <div className="relative w-full">
                 <select 
-                  className="w-full px-4 py-3 bg-[#FCFCFD] border border-gray-100 rounded-lg text-gray-800 appearance-none outline-none focus:border-[#6B8E76] font-serif cursor-pointer"
+                  className="w-full px-4 py-3 bg-[#FCFCFD] border border-gray-100 rounded-lg text-gray-800 appearance-none outline-none focus:border-[#6B8E76]   cursor-pointer"
                 >
                   <option>Session 4</option>
                   <option>Session 5</option>
@@ -465,13 +465,13 @@ function UploadModal({ onClose, onUpload, activeTab }: UploadModalProps) {
         <div className="flex gap-4 pt-2">
           <button 
             onClick={onClose} 
-            className="flex-1 py-3 bg-[#E9ECF5] text-gray-800 rounded-lg font-serif text-lg hover:bg-gray-200 transition-colors"
+            className="flex-1 py-3 bg-[#E9ECF5] text-gray-800 rounded-lg   text-lg hover:bg-gray-200 transition-colors"
           >
             Cancel
           </button>
           <button 
             onClick={handleSubmit}
-            className="flex-1 py-3 bg-[#6B8E76] text-white rounded-lg font-serif text-lg hover:bg-[#5a7a63] transition-colors shadow-sm"
+            className="flex-1 py-3 bg-[#6B8E76] text-white rounded-lg   text-lg hover:bg-[#5a7a63] transition-colors shadow-sm"
           >
             Save Change
           </button>
