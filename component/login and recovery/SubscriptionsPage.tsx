@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Check, Edit3, Plus, Trash2, X, ChevronDown } from 'lucide-react';
 
 // Types
@@ -71,6 +71,15 @@ export default function SubscriptionsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
 
+  // Handle toggling visibility for a specific plan
+  const handleToggleVisibility = (id: string) => {
+    setPlans((prevPlans) =>
+      prevPlans.map((plan) =>
+        plan.id === id ? { ...plan, visible: !plan.visible } : plan
+      )
+    );
+  };
+
   // Handle opening the modal
   const handleEdit = (plan: Plan) => {
     setSelectedPlan(plan);
@@ -79,7 +88,7 @@ export default function SubscriptionsPage() {
 
   // Handle saving changes from the modal
   const handleSaveChanges = (updatedPlan: Plan) => {
-    setPlans((prevPlans) => 
+    setPlans((prevPlans) =>
       prevPlans.map((plan) => (plan.id === updatedPlan.id ? updatedPlan : plan))
     );
     setIsModalOpen(false);
@@ -99,18 +108,22 @@ export default function SubscriptionsPage() {
         {plans.map((plan) => (
           <div key={plan.id} className="bg-white p-6 rounded-[1.5rem] shadow-sm border border-gray-100 flex flex-col min-h-[550px]">
             <div className="flex-1">
-              <span className="bg-[#f4faf7] text-[#2db394] px-3 py-1 rounded-full text-[10px] font-bold border border-[#2db394]/10 mb-4 inline-block uppercase">
-                Active
+              <span className={`px-3 py-1 rounded-full text-[10px] font-bold border mb-4 inline-block uppercase ${
+                plan.visible 
+                  ? "bg-[#f4faf7] text-[#2db394] border-[#2db394]/10" 
+                  : "bg-gray-100 text-gray-500 border-gray-200"
+              }`}>
+                {plan.visible ? "Active" : "Inactive"}
               </span>
-              
-              <h3 className="text-[18px] font-serif font-bold text-gray-800 mb-2">{plan.name}</h3>
-              
+
+              <h3 className="text-[16px] font-serif font-bold text-gray-800 mb-2">{plan.name}</h3>
+
               <div className="flex items-baseline mb-3">
-                <span className="text-3xl font-bold font-serif text-gray-800">£{plan.price}</span>
-                <span className="text-[18px] text-gray-400 ml-1 font-serif">{plan.period}</span>
+                <span className="text-[32px] font-bold font-serif text-gray-800">£{plan.price}</span>
+                <span className="text-[12px] text-gray-400 ml-1 font-serif">{plan.period}</span>
               </div>
-              
-              <p className="text-[18px] text-[#4f795a] font-serif leading-relaxed mb-6 italic">
+
+              <p className="text-[14px] text-[#4f795a] font-serif leading-relaxed mb-6 italic">
                 {plan.tagline}
               </p>
 
@@ -130,7 +143,7 @@ export default function SubscriptionsPage() {
               {/* Features List */}
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex gap-3 text-[18px] text-gray-600 font-serif leading-tight">
+                  <li key={idx} className="flex gap-3 text-[14px] text-gray-600 font-serif leading-tight">
                     <Check size={14} className="text-[#4f795a] flex-shrink-0 mt-1" />
                     {feature}
                   </li>
@@ -141,17 +154,29 @@ export default function SubscriptionsPage() {
             {/* Bottom Controls */}
             <div className="mt-auto space-y-6">
               <div className="flex items-center justify-between">
-                <div className="text-[10px]">
+                <div className="text-[12px]">
                   <p className="font-bold text-gray-800">Plan Status</p>
-                  <p className="text-gray-400 font-light">Visible to users</p>
+                  <p className="text-gray-400 font-light">
+                    {plan.visible ? "Visible to users" : "Hidden from users"}
+                  </p>
                 </div>
-                {/* Toggle Switch */}
-                <div className="w-10 h-5 bg-[#4f795a] rounded-full relative cursor-pointer">
-                  <div className="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+
+                {/* Toggle Switch (FIXED) */}
+                <div
+                  onClick={() => handleToggleVisibility(plan.id)}
+                  className={`w-10 h-5 rounded-full relative cursor-pointer transition-colors duration-300 ${
+                    plan.visible ? "bg-[#4f795a]" : "bg-gray-300"
+                  }`}
+                >
+                  <div
+                    className={`absolute top-1 w-3 h-3 bg-white rounded-full transition-all duration-300 ${
+                      plan.visible ? "right-1" : "left-1"
+                    }`}
+                  ></div>
                 </div>
               </div>
 
-              <button 
+              <button
                 onClick={() => handleEdit(plan)}
                 className="w-full py-3 border border-gray-100 rounded-xl flex items-center justify-center gap-2 text-sm font-bold text-gray-700 hover:bg-gray-50 transition-colors"
               >
@@ -164,17 +189,17 @@ export default function SubscriptionsPage() {
 
       {/* Edit Modal */}
       {isModalOpen && selectedPlan && (
-        <EditPlanModal 
-          plan={selectedPlan} 
-          onSave={handleSaveChanges} 
-          onClose={() => setIsModalOpen(false)} 
+        <EditPlanModal
+          plan={selectedPlan}
+          onSave={handleSaveChanges}
+          onClose={() => setIsModalOpen(false)}
         />
       )}
     </div>
   );
 }
 
-// --- MODAL COMPONENT ---
+// --- MODAL COMPONENT (Unchanged) ---
 
 interface EditPlanModalProps {
   plan: Plan;
@@ -183,30 +208,23 @@ interface EditPlanModalProps {
 }
 
 function EditPlanModal({ plan, onSave, onClose }: EditPlanModalProps) {
-  // Local state for the form inputs
   const [formData, setFormData] = useState<Plan>({ ...plan });
 
-  // Update text fields
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // --- Features Logic ---
-
-  // Update a specific feature text
   const handleFeatureChange = (index: number, value: string) => {
     const newFeatures = [...formData.features];
     newFeatures[index] = value;
     setFormData(prev => ({ ...prev, features: newFeatures }));
   };
 
-  // Add a new empty feature
   const handleAddFeature = () => {
     setFormData(prev => ({ ...prev, features: [...prev.features, "New Feature"] }));
   };
 
-  // Delete a feature
   const handleDeleteFeature = (index: number) => {
     const newFeatures = formData.features.filter((_, i) => i !== index);
     setFormData(prev => ({ ...prev, features: newFeatures }));
@@ -225,38 +243,38 @@ function EditPlanModal({ plan, onSave, onClose }: EditPlanModalProps) {
           <div className="grid grid-cols-2 gap-4 text-gray-800">
             <div className="space-y-2">
               <label className="text-sm font-serif">Plan Name</label>
-              <input 
+              <input
                 name="name"
-                type="text" 
-                value={formData.name} 
+                type="text"
+                value={formData.name}
                 onChange={handleChange}
-                className="w-full p-3 bg-white border border-gray-100 rounded-xl outline-none text-sm shadow-sm focus:border-[#4f795a]" 
+                className="w-full p-3 bg-white border border-gray-100 rounded-xl outline-none text-sm shadow-sm focus:border-[#4f795a]"
               />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-serif">Tagline</label>
-              <input 
+              <input
                 name="tagline"
-                type="text" 
-                value={formData.tagline} 
+                type="text"
+                value={formData.tagline}
                 onChange={handleChange}
-                className="w-full p-3 bg-white border border-gray-100 rounded-xl outline-none text-sm shadow-sm focus:border-[#4f795a]" 
+                className="w-full p-3 bg-white border border-gray-100 rounded-xl outline-none text-sm shadow-sm focus:border-[#4f795a]"
               />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-serif">Plan Price (£)</label>
-              <input 
+              <input
                 name="price"
-                type="text" 
-                value={formData.price} 
+                type="text"
+                value={formData.price}
                 onChange={handleChange}
-                className="w-full p-3 bg-white border border-gray-100 rounded-xl outline-none text-sm shadow-sm focus:border-[#4f795a]" 
+                className="w-full p-3 bg-white border border-gray-100 rounded-xl outline-none text-sm shadow-sm focus:border-[#4f795a]"
               />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-serif">Period</label>
               <div className="relative">
-                <select 
+                <select
                   name="period"
                   value={formData.period}
                   onChange={handleChange}
@@ -271,28 +289,27 @@ function EditPlanModal({ plan, onSave, onClose }: EditPlanModalProps) {
             </div>
           </div>
 
-          {/* Features Section */}
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <h3 className="text-sm font-serif text-gray-800">Features</h3>
-              <button 
+              <button
                 onClick={handleAddFeature}
                 className="bg-[#4f795a] text-white px-4 py-2 rounded-lg flex items-center gap-2 text-xs font-bold hover:bg-[#3d5e46] transition-colors"
               >
                 <Plus size={16} /> Add Feature
               </button>
             </div>
-            
+
             <div className="space-y-3">
               {formData.features.map((feature, i) => (
                 <div key={i} className="flex items-center gap-3 animate-in fade-in slide-in-from-left-4 duration-300">
-                  <input 
-                    type="text" 
-                    value={feature} 
+                  <input
+                    type="text"
+                    value={feature}
                     onChange={(e) => handleFeatureChange(i, e.target.value)}
                     className="flex-1 p-3 bg-[#f9fbfa] border border-gray-100 rounded-xl text-sm text-gray-700 focus:border-[#4f795a] outline-none"
                   />
-                  <button 
+                  <button
                     onClick={() => handleDeleteFeature(i)}
                     className="text-red-300 hover:text-red-500 p-2 transition-colors"
                   >
@@ -304,15 +321,14 @@ function EditPlanModal({ plan, onSave, onClose }: EditPlanModalProps) {
           </div>
         </div>
 
-        {/* Footer Buttons */}
         <div className="grid grid-cols-2 gap-4 pt-6 mt-auto flex-shrink-0 bg-white border-t border-gray-50">
-          <button 
-            onClick={onClose} 
+          <button
+            onClick={onClose}
             className="py-3 bg-[#e9edf5] text-gray-700 rounded-xl font-bold font-serif hover:bg-gray-200 transition-colors"
           >
             Cancel
           </button>
-          <button 
+          <button
             onClick={() => onSave(formData)}
             className="py-3 bg-[#4f795a] text-white rounded-xl font-bold font-serif hover:bg-[#3d5e46] transition-colors"
           >
