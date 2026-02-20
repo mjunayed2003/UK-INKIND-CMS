@@ -85,7 +85,7 @@ export default function AccessPage() {
   };
 
   return (
-    <div className="min-h-screen   md:p-8 font-sans text-gray-800">
+    <div className="min-h-screen   md:p-8   text-gray-800">
       
       {/* Header */}
       <div className="flex items-center gap-2 mb-8 text-gray-700">
@@ -138,7 +138,7 @@ export default function AccessPage() {
 
       {/* --- NEW UPDATED MODAL (IMAGE DESIGN) --- */}
       {selectedUser && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm p-4 font-sans">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm p-4  ">
           {/* Modal Card */}
           <div className="bg-white w-full max-w-[600px] flex flex-col rounded-2xl shadow-2xl max-h-[90vh] overflow-hidden animate-in fade-in zoom-in duration-200">
             
@@ -164,7 +164,7 @@ export default function AccessPage() {
                 </div>
                 <div>
                   <p className="text-[#9CA3AF] text-sm mb-1 font-medium">Email</p>
-                  <p className="text-gray-800 font-serif text-[15px]">{selectedUser.email}</p>
+                  <p className="text-gray-800 text-[15px]">{selectedUser.email}</p>
                 </div>
                 <div>
                   <p className="text-[#9CA3AF] text-sm mb-1 font-medium">Joined Date</p>
@@ -178,12 +178,12 @@ export default function AccessPage() {
 
               {/* Assessment Results Section */}
               <div className="bg-[#FFF9F2] rounded-xl border border-[#F5EAD9] p-5">
-                <h3 className="text-xl font-serif text-[#8c9bab] mb-4">Assessment Results</h3>
+                <h3 className="text-xl text-[#8c9bab] mb-4">Assessment Results</h3>
                 
                 <div className="space-y-4">
                   {/* Depression */}
                   <div className="border-b border-[#EAE0D5] pb-3 last:border-0 last:pb-0">
-                    <p className="text-[#9CA3AF] font-serif text-sm mb-1">Depression (PHQ-9)</p>
+                    <p className="text-[#9CA3AF] text-sm mb-1">Depression (PHQ-9)</p>
                     <p className="text-sm">
                       <span className="font-bold text-gray-800">{selectedUser.assessment.phq9.level}</span>
                       <span className="text-[#9CA3AF] ml-1 text-xs">(Score: {selectedUser.assessment.phq9.score})</span>
@@ -191,7 +191,7 @@ export default function AccessPage() {
                   </div>
                   {/* Anxiety */}
                   <div className="border-b border-[#EAE0D5] pb-3 last:border-0 last:pb-0">
-                    <p className="text-[#9CA3AF] font-serif text-sm mb-1">Anxiety (GAD-7)</p>
+                    <p className="text-[#9CA3AF]  text-sm mb-1">Anxiety (GAD-7)</p>
                     <p className="text-sm">
                       <span className="font-bold text-gray-800">{selectedUser.assessment.gad7.level}</span>
                       <span className="text-[#9CA3AF] ml-1 text-xs">(Score: {selectedUser.assessment.gad7.score})</span>
@@ -199,7 +199,7 @@ export default function AccessPage() {
                   </div>
                   {/* Dissociation */}
                   <div>
-                    <p className="text-[#9CA3AF] font-serif text-sm mb-1">Dissociation (DES-II)</p>
+                    <p className="text-[#9CA3AF]  text-sm mb-1">Dissociation (DES-II)</p>
                     <p className="text-sm">
                       <span className="font-bold text-gray-800">Score: {selectedUser.assessment.des2.score}</span>
                     </p>
@@ -209,36 +209,36 @@ export default function AccessPage() {
 
               {/* Immediate Support Available Section */}
               <div>
-                <h3 className="text-xl font-serif text-[#8c9bab] mb-4 pl-1">Immediate Support Available</h3>
+                <h3 className="text-xl text-[#8c9bab] mb-4 pl-1">Immediate Support Available</h3>
                 
                 <div className="bg-white rounded-xl p-6 shadow-sm space-y-5">
                   {/* Item 1 */}
                   <div>
-                    <p className="font-bold text-gray-800 text-sm font-serif">Samaritans (24/7)</p>
+                    <p className="font-bold text-gray-800 text-sm ">Samaritans (24/7)</p>
                     <p className="text-xs text-gray-500 mt-1">Free emotional support for anyone in distress</p>
-                    <p className="text-xs text-gray-800 font-bold mt-1 font-serif">
-                      Call: 116 123 <span className="text-[#9CA3AF] font-normal font-sans">(Free from any phone)</span>
+                    <p className="text-xs text-gray-800 font-bold mt-1 ">
+                      Call: 116 123 <span className="text-[#9CA3AF] font-normal  ">(Free from any phone)</span>
                     </p>
                   </div>
                   {/* Item 2 */}
                   <div>
-                    <p className="font-bold text-gray-800 text-sm font-serif">NHS Crisis Line</p>
+                    <p className="font-bold text-gray-800 text-sm ">NHS Crisis Line</p>
                     <p className="text-xs text-gray-500 mt-1">Urgent mental health support</p>
-                    <p className="text-xs text-gray-800 font-bold mt-1 font-serif">
-                      Call: 111 <span className="text-[#9CA3AF] font-normal font-sans">and select mental health option</span>
+                    <p className="text-xs text-gray-800 font-bold mt-1">
+                      Call: 111 <span className="text-[#9CA3AF] font-normal  ">and select mental health option</span>
                     </p>
                   </div>
                   {/* Item 3 */}
                   <div>
-                    <p className="font-bold text-gray-800 text-sm font-serif">SHOUT Crisis Text Line</p>
+                    <p className="font-bold text-gray-800 text-sm ">SHOUT Crisis Text Line</p>
                     <p className="text-xs text-gray-500 mt-1">24/7 text support for anyone in crisis</p>
-                    <p className="text-xs text-gray-800 font-normal mt-1 font-serif">
+                    <p className="text-xs text-gray-800 font-normal mt-1 ">
                       Text "<span className="font-bold">SHOUT</span>" to <span className="font-bold">85258</span>
                     </p>
                   </div>
                   {/* Item 4 */}
                   <div>
-                    <p className="font-bold text-gray-800 text-sm font-serif">Your GP Surgery</p>
+                    <p className="font-bold text-gray-800 text-sm  ">Your GP Surgery</p>
                     <p className="text-xs text-gray-500 mt-1">Contact your GP for an urgent appointment</p>
                     <p className="text-xs text-gray-500 mt-0.5">They can provide immediate support and referrals</p>
                   </div>
@@ -250,13 +250,13 @@ export default function AccessPage() {
             <div className="p-5 bg-white border-t border-gray-100 flex gap-4">
               <button 
                 onClick={() => setSelectedUser(null)}
-                className="flex-1 py-3 bg-[#F9FAFB] text-[#4F7A5B] rounded-lg font-serif font-bold text-lg hover:bg-gray-100 transition-colors shadow-sm border border-gray-200"
+                className="flex-1 py-3 bg-[#F9FAFB] text-[#4F7A5B] rounded-lg   font-bold text-lg hover:bg-gray-100 transition-colors shadow-sm border border-gray-200"
               >
                 Cancel
               </button>
               <button 
                 onClick={() => handleStatusChange(selectedUser.id, 'Approved')}
-                className="flex-1 py-3 bg-[#4F7A5B] text-white rounded-lg font-serif font-bold text-lg hover:bg-[#3E634A] transition-colors shadow-md"
+                className="flex-1 py-3 bg-[#4F7A5B] text-white rounded-lg   font-bold text-lg hover:bg-[#3E634A] transition-colors shadow-md"
               >
                 Approve
               </button>

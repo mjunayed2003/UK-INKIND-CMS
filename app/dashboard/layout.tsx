@@ -24,7 +24,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     router.push("/login");
   }
   return (
-    <div className="flex bg-[#fdf6ee] min-h-screen">
+    <div className="flex bg-[#fdf6ee] min-h-screen " style={{ fontFamily: 'Georgia, serif' }}>
       {/* Sidebar */}
       <aside className="w-[272px] bg-white border-r-2 border-gray-300 flex flex-col fixed h-full z-10">
         <div className="flex justify-center border-b-2 border-gray-300 ">
@@ -49,7 +49,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       {/* Content Area */}
       <div className="flex-1 ml-[272px] flex flex-col">
         <header className="flex justify-between items-center bg-white px-8 py-2 shadow-sm sticky top-0 z-20">
-          <h2 className="text-gray-600 font-medium font-serif">Saturday, January 10, 2026</h2>
+          <h2 className="text-gray-600 font-medium">Saturday, January 10, 2026</h2>
           <div className="flex items-center gap-6">
             <Link href="/dashboard/notifications" className="relative">
               <div className='border-r-2 border-gray-300 pr-4'><Bell size={22} className="text-gray-400" /></div>

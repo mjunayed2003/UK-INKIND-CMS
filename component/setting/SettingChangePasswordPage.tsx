@@ -24,7 +24,7 @@ export default function SettingChangePasswordPage() {
       <div className="flex-1 flex items-center justify-center z-10">
         <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-sm border border-gray-100 w-full max-w-[500px]">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-serif font-bold text-gray-800">Change Password</h2>
+            <h2 className="text-3xl   font-bold text-gray-800">Change Password</h2>
             <p className="text-gray-500 text-sm mt-2">Please create a secure password.</p>
           </div>
           

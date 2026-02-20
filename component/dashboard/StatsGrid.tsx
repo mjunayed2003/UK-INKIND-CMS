@@ -11,21 +11,21 @@ interface StatCardProps {
 const StatCard = ({ title, value, percentage, subText }: StatCardProps) => {
   return (
     <div className="bg-white p-8 rounded-[2rem] shadow-sm flex flex-col justify-between min-h-[210px] border border-gray-50">
-      <h3 className="text-[#8e8e8e] font-serif text-xl font-light mb-2">
+      <h3 className="text-[#8e8e8e]   text-xl font-light mb-2">
         {title}
       </h3>
 
       <div className="flex-1 flex items-center">
-        <h4 className="text-black text-5xl font-bold font-serif tracking-tight">
+        <h4 className="text-black text-5xl font-bold   tracking-tight">
           {value}
         </h4>
       </div>
       <div className="flex items-center gap-3 mt-4">
         <div className="flex items-center gap-1.5 text-[#4f795a]">
           <TrendingUp size={24} strokeWidth={2.5} />
-          <span className="text-lg font-bold font-serif">{percentage}</span>
+          <span className="text-lg font-bold  ">{percentage}</span>
         </div>
-        <p className="text-[#444444] text-sm font-light font-sans whitespace-nowrap">
+        <p className="text-[#444444] text-sm font-light   whitespace-nowrap">
           {subText}
         </p>
       </div>

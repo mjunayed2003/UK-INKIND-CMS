@@ -57,7 +57,7 @@ export default function DashboardPage() {
   return (
     <>
       <section className="mb-8">
-        <h1 className="text-3xl font-serif text-gray-800">System Overview</h1>
+        <h1 className="text-3xl   text-gray-800">System Overview</h1>
         <p className="text-gray-500 text-sm">Real-time monitoring of platform health and user activity</p>
       </section>
 
@@ -65,10 +65,10 @@ export default function DashboardPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 my-8">
         <div className="lg:col-span-2 bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-50">
-          <h3 className="text-2xl font-serif mb-1 text-gray-800">Monthly Recurring Revenue</h3>
+          <h3 className="text-2xl   mb-1 text-gray-800">Monthly Recurring Revenue</h3>
           <p className="text-gray-500 text-sm mb-6">Revenue trends over the last 6 months</p>
           <div className="flex items-center gap-4 mb-8">
-            <span className="text-4xl font-bold font-serif text-gray-800">£156,910</span>
+            <span className="text-4xl font-bold   text-gray-800">£156,910</span>
             <div className="flex items-center gap-1 text-[#497955]"><TrendingUp size={24} /><span className="text-lg font-bold">15%</span></div>
           </div>
           <div className="h-72 w-full">
@@ -85,7 +85,7 @@ export default function DashboardPage() {
         </div>
 
         <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-50">
-          <h3 className="text-2xl font-serif mb-6 text-gray-800">Subscription Distribution</h3>
+          <h3 className="text-2xl   mb-6 text-gray-800">Subscription Distribution</h3>
           <div className="space-y-8">
             {['Rockstar', 'Hero', 'Prime', 'Main', 'Free'].map((plan) => (
               <div key={plan} className="space-y-2">
@@ -103,7 +103,7 @@ export default function DashboardPage() {
 
       <div className="bg-white rounded-[2rem] p-8 shadow-sm">
         <div className="flex justify-end mb-4">
-          <Link href="/dashboard/users" className="font-serif text-gray-800 underline hover:text-[#4f795a] transition-colors">
+          <Link href="/dashboard/users" className="  text-gray-800 underline hover:text-[#4f795a] transition-colors">
             View all
           </Link>
         </div>
@@ -111,7 +111,7 @@ export default function DashboardPage() {
         <div className="overflow-x-auto">
           <table className="w-full border-separate border-spacing-y-4">
             <thead>
-              <tr className="bg-[#76977e] text-white font-serif">
+              <tr className="bg-[#76977e] text-white  ">
                 <th className="px-6 py-4 font-normal text-left rounded-l-2xl">User Name</th>
                 <th className="px-6 py-4 font-normal text-left">Email</th>
                 <th className="px-6 py-4 font-normal text-left">Subscription</th>
@@ -123,9 +123,9 @@ export default function DashboardPage() {
             </thead>
             <tbody>
               {dashboardUsers.map((user, i) => (
-                <tr key={i} className="text-sm font-serif">
+                <tr key={i} className="text-sm  ">
                   <td className="px-6 py-4 text-gray-500">{user.name}</td>
-                  <td className="px-6 py-4 text-gray-500 font-sans">{user.email}</td>
+                  <td className="px-6 py-4 text-gray-500  ">{user.email}</td>
                   <td className="px-6 py-4">
                     <span className="px-4 py-1.5 border border-[#4f795a]/20 text-[#2db394] rounded-lg">
                       {user.plan}
@@ -134,7 +134,7 @@ export default function DashboardPage() {
                   <td className="px-6 py-4 text-gray-600">{user.type}</td>
                   <td className="px-6 py-4">
                     <div className="w-32">
-                      <span className="text-[10px] font-bold font-sans block mb-1 text-gray-800">{user.progress}%</span>
+                      <span className="text-[10px] font-bold   block mb-1 text-gray-800">{user.progress}%</span>
                       <div className="w-full bg-[#cbd5cc] h-2 rounded-full">
                         <div className="bg-[#4f795a] h-full rounded-full" style={{ width: `${user.progress}%` }}></div>
                       </div>
@@ -185,7 +185,7 @@ export default function DashboardPage() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm mb-1">Email</p>
-                    <p className="text-gray-800 font-serif">{selectedUser.email}</p>
+                    <p className="text-gray-800  ">{selectedUser.email}</p>
                   </div>
 
                   <div>
@@ -220,7 +220,7 @@ export default function DashboardPage() {
 
                 {/* Progress Bar Section */}
                 <div>
-                  <p className="font-serif text-gray-800 mb-3">Overall Progress</p>
+                  <p className="  text-gray-800 mb-3">Overall Progress</p>
                   <div className="relative w-full bg-[#dce6e0] h-7 rounded-full overflow-hidden flex items-center px-1">
                     <div 
                       className="bg-[#4f795a] h-5 rounded-full" 

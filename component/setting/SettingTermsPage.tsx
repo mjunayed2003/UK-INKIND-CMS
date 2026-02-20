@@ -53,7 +53,7 @@ export default function SettingTermsAndConditions() {
 
         {/* Content Section */}
         <div className={`prose prose-sm max-w-none text-gray-700 ${isEditing ? 'outline-none' : ''}`} contentEditable={isEditing}>
-          {!isEditing && <p className="text-[#4f795a] font-serif font-bold mb-6">Last Updated: October 2025</p>}
+          {!isEditing && <p className="text-[#4f795a]   font-bold mb-6">Last Updated: October 2025</p>}
           
           <h3 className="text-lg font-bold mb-2">1. Introduction</h3>
           <p className="mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
